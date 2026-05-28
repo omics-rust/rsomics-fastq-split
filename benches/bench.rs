@@ -13,7 +13,14 @@ fn bench_fastq_split(c: &mut Criterion) {
             let tmp = TempDir::new().unwrap();
             let out_prefix = tmp.path().join("split");
             let out = Command::new(black_box(bin))
-                .args(["--in1", fq.to_str().unwrap(), "--out1", out_prefix.to_str().unwrap(), "-s", "2"])
+                .args([
+                    "--in1",
+                    fq.to_str().unwrap(),
+                    "--out1",
+                    out_prefix.to_str().unwrap(),
+                    "-s",
+                    "2",
+                ])
                 .output()
                 .unwrap();
             assert!(out.status.success());
