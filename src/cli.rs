@@ -291,7 +291,6 @@ pub const HELP: HelpSpec = HelpSpec {
 mod tests {
     use clap::CommandFactory;
 
-    // debug_assert validates the full arg graph including flattened CommonFlags; only fires at binary parse time.
     #[test]
     fn cli_definition_is_valid() {
         super::Cli::command().debug_assert();
